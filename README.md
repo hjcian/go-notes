@@ -1,6 +1,5 @@
-# 進度
-
-https://youtu.be/YS4e4q9oBaU?t=3158
+# 自學筆記
+[Learn Go Programming - Golang Tutorial for Beginners](https://www.youtube.com/watch?v=YS4e4q9oBaU)\
 
 
 ## [變數](https://www.youtube.com/watch?v=YS4e4q9oBaU&t=2148s)
