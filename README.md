@@ -107,4 +107,49 @@
     ```
 
 ## [Arrays and Slices](https://www.youtube.com/watch?v=YS4e4q9oBaU&t=6473s)
+- [array](https://www.golangprograms.com/go-language/arrays.html) vs. [slice](https://www.golangprograms.com/go-language/slices-in-golang-programming.html)
+    - `a =: [3]int` - array
+    - `a =: [...]int{1, 2, 3}` - array
+    - `a =: []int{}` - slice
+- array
+    - 固定長度
+    - declaration styles
+        1. `a := [5]int{1,2,3}` - [1 2 3 0 0] can do Partial assignment
+        2. `a := [...]int{1,2,3}` - Initializing an Array with ellipses in Go, the compiler can identify the length of an array, based on the elements specified in the array declaration.
+        3. `var a [3]int` - 
+    - **len** return size of array; **cap** 回傳預先配置的記憶體長度
+    - copy (`a := b`) 會創建一塊一樣大小的記憶體出來
+- slice
+    - 所有切出來的都是參考
+    - creation styles
+        - 從既有的 array 中切出
+        - slice literal
+            - array literal: `[3]int{1,2,3}`
+            - slice literal: `[]int{1,2,3}` - 創建同上的 array 之後，再建一個 slice 指向該 array ( [array literal vs. slice literal](https://tour.golang.org/moretypes/9))
+        - via make function
+            - `a := make([]int, 10)` - create slice with capacity and length == 10
+            - `a := make([]int, 10, 100)` - create slice with capacity == 100 and length == 10
+    - `len`: return length of slice
+    - `cap`: return length of underlying array
+    - `append`: add elements to slice
+        - slice 無固定長度 
+    - copy 的行為會指向 same underlying array
+    
+## map and struct
+- map
+    - 一樣可用 `make` 來創建
+    - 用 [key] 取值
+    - 用 value, ok = a[key] 來確認 key 是否存在
+    - map 的 copy 行為為 reference
+- struct
+    - 可匿名創建 struct 
+    - copy 行為為真複製
+    - embedded struct
+        - 無真正的繼承行為，實際上只是 has-a relationship，也就是 composition 而已
+        - golang 有 Interface 的 feature 去實現 OOP 中的繼承概念
+    - tag 
+        - 用來補充 struct 欄位的額外 meta info
+        - 可以用 `reflect` 的一系列方法來取得這些 meta info
+        - check out: https://zhengyinyong.com/field-tag-in-go-struct.html
 
+## [control flow: If and Switch](https://www.youtube.com/watch?v=YS4e4q9oBaU&t=10080s)

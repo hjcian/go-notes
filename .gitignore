@@ -8,5 +8,7 @@
 # Testing
 *.test
 *.tmp
+
+src/github.com/golang/
 pkg
 bin
